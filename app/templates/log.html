@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- {% for url in domain %}
+<li>
+    {{ url }}
+</li>
+{% endfor %} -->
+
+<table border="1px" style="float:unset; margin:0 auto" >
+    <tr>
+        <th colspan="4">
+          检测的日志是：  {{ dir }}
+        </th>
+
+    </tr>
+    <tr>
+        <th>
+            域名
+        </th>
+        <th>
+            响应代码
+        </th>
+        <th>
+        是否是CDN域名
+        </th>
+        <th>
+            ip地址
+        </th>
+    </tr>
+    {% for key,value in dic.items() %}
+    <tr>
+        <td>
+            {{ key }}
+        </td>
+        <td>
+            {{ value.split("'")[1] }}
+        </td>
+        <td>
+          {{ dicCDN.get(key)[0]['Status']  }}
+        </td>
+<td>
+    {{ dicCDN.get(key)[1]  }}
+</td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}
