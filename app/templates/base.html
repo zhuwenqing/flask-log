@@ -10,12 +10,16 @@
     <title>欢迎来到博客</title>
     {% endif %}
 </head>
-
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static' ,filename='img/favicon.ico') }}" type="image/x-icon">
+<link rel="ico" ,href=" {{ url_for('static',filename='img/favicon.ico') }}" type="image/x-icon" >
+{% endblock %}
 <body>
     <div>博客:
         <a href={{ url_for('index') }}>首页</a>
-        <a href={{ url_for('login') }}>登录</a>
         <a href={{ url_for('log')}}>日志</a>
+        <a href={{ url_for('login') }}>登录</a>
+       
     </div>
 <hr>
 {% with messages=get_flashed_messages() %}

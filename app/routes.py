@@ -99,3 +99,7 @@ def log():
 #     for line in con:
 #         print(line)
 
+@app.route('/<username>')
+def hello(username):
+    return '<h1>hello,%s<h1>' % username
+
